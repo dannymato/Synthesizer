@@ -5,15 +5,15 @@ import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.LineOut;
 import com.jsyn.unitgen.UnitOscillator;
 
-public class C {
+public class D {
 	
 	private Synthesizer synth;
 	private LineOut lineOut;
 	private UnitOscillator osc;
 	
-	private final double PITCH = 261.626;
+	private final double PITCH = 293.665;
 	
-	public C(UnitOscillator g){
+	public D(UnitOscillator g){
 		synth = JSyn.createSynthesizer();
 		synth.add(osc = g);
 		synth.add(lineOut = new LineOut());
@@ -26,13 +26,12 @@ public class C {
 		synth.start();
 		lineOut.start();
 		
-		
-			try {
-				synth.wait(5);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			synth.wait(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		stop();
 	}
