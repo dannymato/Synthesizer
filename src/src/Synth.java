@@ -29,7 +29,7 @@ public class Synth {
 		lOut.start();
 		
 		try {
-			synth.sleepUntil(0);
+			synth.sleepFor(.5);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
