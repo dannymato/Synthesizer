@@ -11,6 +11,10 @@ public class MEb extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public MEb() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

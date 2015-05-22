@@ -11,6 +11,10 @@ public class MA extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public MA() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

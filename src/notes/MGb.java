@@ -11,6 +11,10 @@ public class MGb extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public MGb() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

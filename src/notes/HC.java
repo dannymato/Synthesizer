@@ -11,6 +11,10 @@ public class HC extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public HC() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

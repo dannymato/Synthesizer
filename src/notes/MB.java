@@ -2,17 +2,17 @@ package notes;
 
 import com.jsyn.unitgen.UnitOscillator;
 
-public class Ab extends Note{
+public class MB extends Note{
 		
-	private final static double PITCH = 415.305;
+	private final static double PITCH = 493.883;
 	
-	public Ab(UnitOscillator g){
+	public MB(UnitOscillator g){
 		
 		super(g,PITCH);
 		
 	}
 
-	public Ab() {
+	public MB() {
 		// TODO Auto-generated constructor stub
 	}
 	

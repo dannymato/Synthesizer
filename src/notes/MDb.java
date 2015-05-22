@@ -11,6 +11,10 @@ public class MDb extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public MDb() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

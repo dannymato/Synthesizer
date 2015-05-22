@@ -11,6 +11,10 @@ public class Db extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public Db() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

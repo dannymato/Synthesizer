@@ -11,6 +11,10 @@ public class MAb extends Note{
 		super(g,PITCH);
 		
 	}
+
+	public MAb() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

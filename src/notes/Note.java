@@ -1,9 +1,9 @@
 package notes;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import src.Variables;
 
@@ -13,7 +13,7 @@ import com.jsyn.unitgen.LineOut;
 import com.jsyn.unitgen.SineOscillator;
 import com.jsyn.unitgen.UnitOscillator;
 
-public class Note implements KeyListener, ActionListener{
+public class Note implements KeyListener, MouseListener{
 	
 	private Synthesizer synth;
 	private LineOut lineOut;
@@ -34,8 +34,10 @@ public class Note implements KeyListener, ActionListener{
 		lineOut.start();
 					
 		
-		stop(); 
+		
 	}
+	
+	public Note(){}
 	
 	public void stop(){
 		synth.stop();
@@ -54,15 +56,26 @@ public class Note implements KeyListener, ActionListener{
 		
 		int index = 0;
 		
-		while(this.toString() != v.noteNames[index])
+		System.out.println(this);
+		
+		while(index < v.noteNames.length && !this.toString().equals(v.noteNames[index])){
+			System.out.println(v.noteNames[index]);
+			System.out.println(this.toString() == v.noteNames[index]);
 			index++;
-		n = new Note(v.osc, index);
+		}
+		
+		System.out.println(index);
+		n = new Note(v.osc, v.pitches[index]);
 	}
 	
-	public String toString(){return this.getClass().getName();}
+	public String toString(){return this.getClass().getName().substring(6);}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
+		int key = e.getKeyCode();
+		
+		
 
 		doStuff();
 	
@@ -80,10 +93,35 @@ public class Note implements KeyListener, ActionListener{
 		
 	}
 
+	
+
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
 		doStuff();
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		n.stop();
 		
 	}
 
