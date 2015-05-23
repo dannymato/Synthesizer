@@ -5,12 +5,15 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import src.GUI;
 import src.Variables;
 
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.LineOut;
+import com.jsyn.unitgen.SawtoothOscillator;
 import com.jsyn.unitgen.SineOscillator;
+import com.jsyn.unitgen.SquareOscillator;
 import com.jsyn.unitgen.UnitOscillator;
 
 public class Note implements KeyListener, MouseListener{
@@ -19,6 +22,7 @@ public class Note implements KeyListener, MouseListener{
 	private LineOut lineOut;
 	private UnitOscillator osc;
 	private Note n;
+	public int key = 0;
 	
 	public Note(UnitOscillator g, double fre){
 		synth = JSyn.createSynthesizer();
@@ -37,17 +41,39 @@ public class Note implements KeyListener, MouseListener{
 		
 	}
 	
+	public void setKey(){
+		key = KeyEvent.VK_NUMPAD0;
+	}
+	
 	public Note(){}
 	
 	public void stop(){
 		synth.stop();
 	}
 	
+	@SuppressWarnings("static-access")
 	public void doStuff(){
 		Variables v = new Variables();
-		switch (v.oscType) {
+		int i =0;
+		
+		if(GUI.sineRad.isSelected())
+			i = 0;
+		else if(GUI.squareRad.isSelected())
+			i = 1;
+		else if(GUI.sawRad.isSelected())
+			i = 2;
+		
+		switch (i) {
 		case 0:
-			v.osc = new SineOscillator();			
+			v.osc = new SineOscillator();
+			break;
+			
+		case 1:
+			v.osc = new SquareOscillator();
+			break;
+			
+		case 2:
+			v.osc = new SawtoothOscillator();
 			break;
 
 		default:
@@ -56,15 +82,11 @@ public class Note implements KeyListener, MouseListener{
 		
 		int index = 0;
 		
-		System.out.println(this);
 		
-		while(index < v.noteNames.length && !this.toString().equals(v.noteNames[index])){
-			System.out.println(v.noteNames[index]);
-			System.out.println(this.toString() == v.noteNames[index]);
+		
+		while(index < v.noteNames.length && !this.toString().equals(v.noteNames[index]))
 			index++;
-		}
 		
-		System.out.println(index);
 		n = new Note(v.osc, v.pitches[index]);
 	}
 	
@@ -73,11 +95,13 @@ public class Note implements KeyListener, MouseListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		
+		setKey();
+		
+		System.out.println("swag");
+			
 		int key = e.getKeyCode();
-		
-		
-
-		doStuff();
+		if(key == this.key)
+			doStuff();
 	
 	}
 

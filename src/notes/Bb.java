@@ -1,5 +1,7 @@
 package notes;
 
+import java.awt.event.KeyEvent;
+
 import com.jsyn.unitgen.UnitOscillator;
 
 public class Bb extends Note{
@@ -9,11 +11,16 @@ public class Bb extends Note{
 	public Bb(UnitOscillator g){
 		
 		super(g,PITCH);
+		key = KeyEvent.VK_7;
 		
 	}
 
 	public Bb() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void setKey(){
+		key = KeyEvent.VK_7;
 	}
 	
 
