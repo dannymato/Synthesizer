@@ -1,5 +1,8 @@
 package src;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.jsyn.unitgen.UnitOscillator;
 
 public class Variables {
@@ -36,5 +39,15 @@ public class Variables {
 	
 	public UnitOscillator osc;
 	
+	public Map<String, Double> notes = new HashMap<String,Double>();
+	
 	public static int oscType = 0;
+	
+	public static double amplitude = 1.0;
+	
+	public Variables(){
+		for(int i = 0; i < pitches.length; i++){
+			notes.put(noteNames[i], pitches[i]);
+		}
+	}
 }

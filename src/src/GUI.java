@@ -1,12 +1,16 @@
 package src;
 
 import java.awt.Color;
+import java.util.Hashtable;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSlider;
 
 import notes.A;
 import notes.Ab;
@@ -64,13 +68,18 @@ public class GUI {
 	public static JRadioButton squareRad;
 	public static JRadioButton sawRad;
 	
+	public JPanel panel;
+	
+	public JSlider slide;
+	
 	public GUI(){
 		mkFrame();
+		mkBKeys();
 		mkLEKeys();
 		mkWKeys();
 		mkREKeys();
-		mkBKeys();
 		mkRads();
+		mkSlide();
 		frame.setVisible(true);
 	}
 	
@@ -82,6 +91,11 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		
+		panel = new JPanel();
+		panel.setSize(1000,500);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		frame.add(panel);
 		
 	}
 	
@@ -92,7 +106,8 @@ public class GUI {
 		C.setLocation(50, 200);
 		C.addMouseListener(c);
 		C.addKeyListener(c);
-		frame.add(C);
+		panel.add(C);
+		panel.setComponentZOrder(C, 10);
 		
 		F f = new F();
 		F = new LEdgeKey("");
@@ -100,7 +115,8 @@ public class GUI {
 		F.setLocation(200, 200);
 		F.addMouseListener(f);
 		F.addKeyListener(f);
-		frame.add(F);
+		panel.add(F);
+		panel.setComponentZOrder(F	, 10);
 		
 		MC mc = new MC();
 		MC = new LEdgeKey("");
@@ -108,7 +124,8 @@ public class GUI {
 		MC.setLocation(400, 200);
 		MC.addMouseListener(mc);
 		MC.addKeyListener(mc);
-		frame.add(MC);
+		panel.add(MC);
+		panel.setComponentZOrder(MC, 10);
 		
 		MF mf = new MF();
 		MF = new LEdgeKey("");
@@ -117,6 +134,7 @@ public class GUI {
 		MF.addMouseListener(mf);
 		MF.addKeyListener(mf);
 		frame.add(MF);
+		panel.setComponentZOrder(MF, 10);
 		
 		HC hc = new HC();
 		HC = new LEdgeKey("");
@@ -125,6 +143,7 @@ public class GUI {
 		HC.addMouseListener(hc);
 		HC.addKeyListener(hc);
 		frame.add(HC);
+		panel.setComponentZOrder(HC, 10);
 	}
 	
 	public void mkWKeys(){
@@ -136,6 +155,7 @@ public class GUI {
 		D.setBackground(Color.WHITE);
 		D.addKeyListener(d);
 		frame.add(D);
+		panel.setComponentZOrder(D, 10);
 		
 		G g = new G();
 		G = new JButton();
@@ -145,6 +165,7 @@ public class GUI {
 		G.setBackground(Color.WHITE);
 		G.addKeyListener(g);
 		frame.add(G);
+		panel.setComponentZOrder(G, 10);
 		
 		A a = new A();
 		A = new JButton();
@@ -153,7 +174,8 @@ public class GUI {
 		A.addMouseListener(a);
 		A.setBackground(Color.WHITE);
 		A.addKeyListener(a);
-		frame.add(A);
+		panel.add(A);
+		panel.setComponentZOrder(A, 10);
 		
 		MD md = new MD();
 		MD = new JButton();
@@ -162,7 +184,8 @@ public class GUI {
 		MD.addMouseListener(md);
 		MD.setBackground(Color.WHITE);
 		MD.addKeyListener(md);
-		frame.add(MD);
+		panel.add(MD);
+		panel.setComponentZOrder(MD, 10);
 		
 		MG mg = new MG();
 		MG = new JButton();
@@ -171,7 +194,8 @@ public class GUI {
 		MG.addMouseListener(mg);
 		MG.setBackground(Color.WHITE);
 		MG.addKeyListener(mg);
-		frame.add(MG);
+		panel.add(MG);
+		panel.setComponentZOrder(MG, 10);
 		
 		MA ma = new MA();
 		MA = new JButton();
@@ -180,7 +204,8 @@ public class GUI {
 		MA.addMouseListener(ma);
 		MA.setBackground(Color.WHITE);
 		MA.addKeyListener(ma);
-		frame.add(MA);
+		panel.add(MA);
+		panel.setComponentZOrder(MA, 10);
 		
 		
 	}
@@ -192,7 +217,8 @@ public class GUI {
 		E.setLocation(150,200);
 		E.addMouseListener(e);
 		E.addKeyListener(e);
-		frame.add(E);
+		panel.add(E);
+		panel.setComponentZOrder(E, 10);
 		
 		B b = new B();
 		B = new REdgeKey("");
@@ -200,7 +226,8 @@ public class GUI {
 		B.setLocation(350,200);
 		B.addMouseListener(b);
 		B.addKeyListener(b);
-		frame.add(B);
+		panel.add(B);
+		panel.setComponentZOrder(B, 10);
 		
 		ME me = new ME();
 		ME = new REdgeKey("");
@@ -208,7 +235,8 @@ public class GUI {
 		ME.setLocation(500,200);
 		ME.addMouseListener(me);
 		ME.addKeyListener(me);
-		frame.add(ME);
+		panel.add(ME);
+		panel.setComponentZOrder(ME, 10);
 		
 		MB mb = new MB();
 		MB = new REdgeKey("");
@@ -216,7 +244,8 @@ public class GUI {
 		MB.setLocation(700,200);
 		MB.addMouseListener(mb);
 		MB.addKeyListener(mb);
-		frame.add(MB);
+		panel.add(MB);
+		panel.setComponentZOrder(MB, 10);
 				
 	}
 	
@@ -273,7 +302,8 @@ public class GUI {
 		bKeys[9].addKeyListener(mbb);
 		
 		for(int i = 0; i < bKeys.length;i++){
-			frame.add(bKeys[i]);
+			panel.add(bKeys[i]);
+			panel.setComponentZOrder(bKeys[i], i);
 		}
 		
 		
@@ -283,27 +313,47 @@ public class GUI {
 		
 		oscPicks = new ButtonGroup();
 		
+		RadioAction r = new RadioAction();
+		
 		sineRad = new JRadioButton("Sine Wave");
 		sineRad.setBounds(700, 50, 100, 20);
 		oscPicks.add(sineRad);
 		sineRad.setSelected(true);
 		sineRad.setIcon((new ImageIcon(this.getClass().getResource("unlit.png"))));
 		sineRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
-		frame.add(sineRad);
+		sineRad.addActionListener(r);
+		panel.add(sineRad);
 		
 		squareRad = new JRadioButton("Square Wave");
 		squareRad.setBounds(700, 75, 150, 20);
 		oscPicks.add(squareRad);
 		squareRad.setIcon((new ImageIcon(this.getClass().getResource("unlit.png"))));
 		squareRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
-		frame.add(squareRad);
+		sineRad.addActionListener(r);
+		panel.add(squareRad);
 		
 		sawRad = new JRadioButton("Sawtooth Wave");
 		sawRad.setBounds(700, 100, 150, 20);
 		sawRad.setIcon((new ImageIcon(this.getClass().getResource("unlit.png"))));
 		sawRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
 		oscPicks.add(sawRad);
-		frame.add(sawRad);
+		sawRad.addActionListener(r);
+		panel.add(sawRad);
+		
+	}
+	
+	public void mkSlide(){
+		
+		slide = new JSlider(0,100,100);
+		slide.setBounds(50, 50, 200, 50);
+		slide.setPaintLabels(true);
+		slide.setPaintTicks(true);
+		slide.setMajorTickSpacing(25);
+		slide.setMinorTickSpacing(10);
+		SliderAction s = new SliderAction();
+		slide.addChangeListener(s);
+			
+		panel.add(slide);
 		
 	}
 

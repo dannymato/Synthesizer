@@ -7,6 +7,8 @@ import javax.swing.JButton;
 
 public class LEdgeKey extends JButton{
 	
+	private static final long serialVersionUID = 1140051448947421465L;
+
 	public LEdgeKey(String title){
 		super(title);
 		setBackground(Color.WHITE);

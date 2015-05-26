@@ -5,15 +5,14 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import src.GUI;
 import src.Variables;
 
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.LineOut;
-import com.jsyn.unitgen.SawtoothOscillator;
-import com.jsyn.unitgen.SineOscillator;
-import com.jsyn.unitgen.SquareOscillator;
+import com.jsyn.unitgen.SawtoothOscillatorDPW;
+import com.jsyn.unitgen.SineOscillatorPhaseModulated;
+import com.jsyn.unitgen.SquareOscillatorBL;
 import com.jsyn.unitgen.UnitOscillator;
 
 public class Note implements KeyListener, MouseListener{
@@ -30,7 +29,7 @@ public class Note implements KeyListener, MouseListener{
 		synth.add(lineOut = new LineOut());
 		
 		osc.frequency.set(fre);
-		osc.amplitude.set(1.0);
+		osc.amplitude.set(Variables.amplitude);
 		
 		osc.output.connect(lineOut.input);
 		
@@ -51,43 +50,27 @@ public class Note implements KeyListener, MouseListener{
 		synth.stop();
 	}
 	
-	@SuppressWarnings("static-access")
 	public void doStuff(){
 		Variables v = new Variables();
-		int i =0;
-		
-		if(GUI.sineRad.isSelected())
-			i = 0;
-		else if(GUI.squareRad.isSelected())
-			i = 1;
-		else if(GUI.sawRad.isSelected())
-			i = 2;
-		
-		switch (i) {
+	
+		switch (Variables.oscType) {
 		case 0:
-			v.osc = new SineOscillator();
+			v.osc = new SineOscillatorPhaseModulated();
 			break;
 			
 		case 1:
-			v.osc = new SquareOscillator();
+			v.osc = new SquareOscillatorBL();
 			break;
 			
 		case 2:
-			v.osc = new SawtoothOscillator();
+			v.osc = new SawtoothOscillatorDPW();
 			break;
 
 		default:
 			break;
 		}
 		
-		int index = 0;
-		
-		
-		
-		while(index < v.noteNames.length && !this.toString().equals(v.noteNames[index]))
-			index++;
-		
-		n = new Note(v.osc, v.pitches[index]);
+		n = new Note(v.osc, v.notes.get(this.toString()));
 	}
 	
 	public String toString(){return this.getClass().getName().substring(6);}
