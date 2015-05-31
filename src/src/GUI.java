@@ -1,42 +1,16 @@
 package src;
 
 import java.awt.Color;
-import java.util.Hashtable;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
-
-import notes.A;
-import notes.Ab;
-import notes.B;
-import notes.Bb;
-import notes.C;
-import notes.D;
-import notes.Db;
-import notes.E;
-import notes.Eb;
-import notes.F;
-import notes.G;
-import notes.Gb;
-import notes.HC;
-import notes.MA;
-import notes.MAb;
-import notes.MB;
-import notes.MBb;
-import notes.MC;
-import notes.MD;
-import notes.MDb;
-import notes.ME;
-import notes.MEb;
-import notes.MF;
-import notes.MG;
-import notes.MGb;
+import javax.swing.KeyStroke;
 
 public class GUI {
 	
@@ -80,6 +54,7 @@ public class GUI {
 		mkREKeys();
 		mkRads();
 		mkSlide();
+		mkKeys();
 		frame.setVisible(true);
 	}
 	
@@ -100,110 +75,99 @@ public class GUI {
 	}
 	
 	public void mkLEKeys(){
-		C c = new C();
+	//	C c = new C();
 		C = new LEdgeKey("");
 		C.setSize(50, 200);
 		C.setLocation(50, 200);
-		C.addMouseListener(c);
-		C.addKeyListener(c);
+		C.addMouseListener(Variables.notes[0]);
 		panel.add(C);
 		panel.setComponentZOrder(C, 10);
 		
-		F f = new F();
+	//	F f = new F();
 		F = new LEdgeKey("");
 		F.setSize(50, 200);
 		F.setLocation(200, 200);
-		F.addMouseListener(f);
-		F.addKeyListener(f);
+		F.addMouseListener(Variables.notes[5]);
 		panel.add(F);
 		panel.setComponentZOrder(F	, 10);
 		
-		MC mc = new MC();
+	//	MC mc = new MC();
 		MC = new LEdgeKey("");
 		MC.setSize(50, 200);
 		MC.setLocation(400, 200);
-		MC.addMouseListener(mc);
-		MC.addKeyListener(mc);
+		MC.addMouseListener(Variables.notes[12]);
 		panel.add(MC);
 		panel.setComponentZOrder(MC, 10);
 		
-		MF mf = new MF();
+	//	MF mf = new MF();
 		MF = new LEdgeKey("");
 		MF.setSize(50, 200);
 		MF.setLocation(550, 200);
-		MF.addMouseListener(mf);
-		MF.addKeyListener(mf);
+		MF.addMouseListener(Variables.notes[17]);
 		frame.add(MF);
 		panel.setComponentZOrder(MF, 10);
 		
-		HC hc = new HC();
+	//	HC hc = new HC();
 		HC = new LEdgeKey("");
 		HC.setSize(50, 200);
 		HC.setLocation(750, 200);
-		HC.addMouseListener(hc);
-		HC.addKeyListener(hc);
+		HC.addMouseListener(Variables.notes[24]);
 		frame.add(HC);
 		panel.setComponentZOrder(HC, 10);
 	}
 	
 	public void mkWKeys(){
-		D d = new D();
+	//	D d = new D();
 		D = new JButton();
 		D.setSize(50,100);
 		D.setLocation(100, 300);
-		D.addMouseListener(d);
+		D.addMouseListener(Variables.notes[2]);
 		D.setBackground(Color.WHITE);
-		D.addKeyListener(d);
 		frame.add(D);
 		panel.setComponentZOrder(D, 10);
 		
-		G g = new G();
+	//	G g = new G();
 		G = new JButton();
 		G.setSize(50,100);
 		G.setLocation(250, 300);
-		G.addMouseListener(g);
+		G.addMouseListener(Variables.notes[7]);
 		G.setBackground(Color.WHITE);
-		G.addKeyListener(g);
 		frame.add(G);
 		panel.setComponentZOrder(G, 10);
 		
-		A a = new A();
+	//	A a = new A();
 		A = new JButton();
 		A.setSize(50,100);
 		A.setLocation(300, 300);
-		A.addMouseListener(a);
+		A.addMouseListener(Variables.notes[9]);
 		A.setBackground(Color.WHITE);
-		A.addKeyListener(a);
 		panel.add(A);
 		panel.setComponentZOrder(A, 10);
 		
-		MD md = new MD();
+	//	MD md = new MD();
 		MD = new JButton();
 		MD.setSize(50,100);
 		MD.setLocation(450, 300);
-		MD.addMouseListener(md);
+		MD.addMouseListener(Variables.notes[14]);
 		MD.setBackground(Color.WHITE);
-		MD.addKeyListener(md);
 		panel.add(MD);
 		panel.setComponentZOrder(MD, 10);
 		
-		MG mg = new MG();
+	//	MG mg = new MG();
 		MG = new JButton();
 		MG.setSize(50,100);
 		MG.setLocation(600, 300);
-		MG.addMouseListener(mg);
+		MG.addMouseListener(Variables.notes[19]);
 		MG.setBackground(Color.WHITE);
-		MG.addKeyListener(mg);
 		panel.add(MG);
 		panel.setComponentZOrder(MG, 10);
 		
-		MA ma = new MA();
+	//	MA ma = new MA();
 		MA = new JButton();
 		MA.setSize(50,100);
 		MA.setLocation(650, 300);
-		MA.addMouseListener(ma);
+		MA.addMouseListener(Variables.notes[21]);
 		MA.setBackground(Color.WHITE);
-		MA.addKeyListener(ma);
 		panel.add(MA);
 		panel.setComponentZOrder(MA, 10);
 		
@@ -211,39 +175,35 @@ public class GUI {
 	}
 	
 	public void mkREKeys(){
-		E e = new E();
+	//	E e = new E();
 		E = new REdgeKey("");
 		E.setSize(50, 200);
 		E.setLocation(150,200);
-		E.addMouseListener(e);
-		E.addKeyListener(e);
+		E.addMouseListener(Variables.notes[4]);
 		panel.add(E);
 		panel.setComponentZOrder(E, 10);
 		
-		B b = new B();
+	//	B b = new B();
 		B = new REdgeKey("");
 		B.setSize(50, 200);
 		B.setLocation(350,200);
-		B.addMouseListener(b);
-		B.addKeyListener(b);
+		B.addMouseListener(Variables.notes[11]);
 		panel.add(B);
 		panel.setComponentZOrder(B, 10);
 		
-		ME me = new ME();
+	//	ME me = new ME();
 		ME = new REdgeKey("");
 		ME.setSize(50, 200);
 		ME.setLocation(500,200);
-		ME.addMouseListener(me);
-		ME.addKeyListener(me);
+		ME.addMouseListener(Variables.notes[16]);
 		panel.add(ME);
 		panel.setComponentZOrder(ME, 10);
 		
-		MB mb = new MB();
+	//	MB mb = new MB();
 		MB = new REdgeKey("");
 		MB.setSize(50, 200);
 		MB.setLocation(700,200);
-		MB.addMouseListener(mb);
-		MB.addKeyListener(mb);
+		MB.addMouseListener(Variables.notes[23]);
 		panel.add(MB);
 		panel.setComponentZOrder(MB, 10);
 				
@@ -257,7 +217,7 @@ public class GUI {
 			bKeys[i].setBackground(Color.BLACK);
 		}
 		
-		Db db = new Db();
+	/*	Db db = new Db();
 		Eb eb = new Eb();
 		Gb gb = new Gb();
 		Ab ab = new Ab();
@@ -266,7 +226,7 @@ public class GUI {
 		MEb meb = new MEb();
 		MGb mgb = new MGb();
 		MAb mab = new MAb();
-		MBb mbb = new MBb();
+		MBb mbb = new MBb();*/
 		
 		bKeys[0].setLocation(75,200);
 		bKeys[1].setLocation(125,200);
@@ -279,27 +239,18 @@ public class GUI {
 		bKeys[8].setLocation(625,200);
 		bKeys[9].setLocation(675,200);
 		
-		bKeys[0].addMouseListener(db);
-		bKeys[1].addMouseListener(eb);
-		bKeys[2].addMouseListener(gb);
-		bKeys[3].addMouseListener(ab);
-		bKeys[4].addMouseListener(bb);
-		bKeys[5].addMouseListener(mdb);
-		bKeys[6].addMouseListener(meb);
-		bKeys[7].addMouseListener(mgb);
-		bKeys[8].addMouseListener(mab);
-		bKeys[9].addMouseListener(mbb);
+		bKeys[0].addMouseListener(Variables.notes[1]);
+		bKeys[1].addMouseListener(Variables.notes[3]);
+		bKeys[2].addMouseListener(Variables.notes[6]);
+		bKeys[3].addMouseListener(Variables.notes[8]);
+		bKeys[4].addMouseListener(Variables.notes[10]);
+		bKeys[5].addMouseListener(Variables.notes[13]);
+		bKeys[6].addMouseListener(Variables.notes[15]);
+		bKeys[7].addMouseListener(Variables.notes[18]);
+		bKeys[8].addMouseListener(Variables.notes[20]);
+		bKeys[9].addMouseListener(Variables.notes[22]);
 		
-		bKeys[0].addKeyListener(db);
-		bKeys[1].addKeyListener(eb);
-		bKeys[2].addKeyListener(gb);
-		bKeys[3].addKeyListener(ab);
-		bKeys[4].addKeyListener(bb);
-		bKeys[5].addKeyListener(mdb);
-		bKeys[6].addKeyListener(meb);
-		bKeys[7].addKeyListener(mgb);
-		bKeys[8].addKeyListener(mab);
-		bKeys[9].addKeyListener(mbb);
+
 		
 		for(int i = 0; i < bKeys.length;i++){
 			panel.add(bKeys[i]);
@@ -354,6 +305,87 @@ public class GUI {
 		slide.addChangeListener(s);
 			
 		panel.add(slide);
+		
+	}
+	
+	public void mkKeys(){
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("Q"), "C");
+		panel.getActionMap().put("C", Variables.notes[0]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("2"), "Db");
+		panel.getActionMap().put("Db", Variables.notes[1]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "D");
+		panel.getActionMap().put("D", Variables.notes[2]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_3, 0), "Eb");
+		panel.getActionMap().put("Eb", Variables.notes[3]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_E, 0), "E");
+		panel.getActionMap().put("E", Variables.notes[4]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_R, 0), "F");
+		panel.getActionMap().put("F", Variables.notes[5]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_5, 0), "Gb");
+		panel.getActionMap().put("Gb", Variables.notes[6]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_T, 0), "G");
+		panel.getActionMap().put("G", Variables.notes[7]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_6, 0), "Ab");
+		panel.getActionMap().put("Ab", Variables.notes[8]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, 0), "A");
+		panel.getActionMap().put("A", Variables.notes[9]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_7, 0), "Bb");
+		panel.getActionMap().put("Bb", Variables.notes[10]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_U, 0), "B");
+		panel.getActionMap().put("B", Variables.notes[11]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, 0), "MC");
+		panel.getActionMap().put("MC", Variables.notes[12]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "MDb");
+		panel.getActionMap().put("MDb", Variables.notes[13]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_X, 0), "MD");
+		panel.getActionMap().put("MD", Variables.notes[14]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), "MEb");
+		panel.getActionMap().put("MEb", Variables.notes[15]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_C, 0), "ME");
+		panel.getActionMap().put("ME", Variables.notes[16]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_V, 0), "MF");
+		panel.getActionMap().put("MF", Variables.notes[17]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_G, 0), "MGb");
+		panel.getActionMap().put("MGb", Variables.notes[18]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_B, 0), "MG");
+		panel.getActionMap().put("MG", Variables.notes[19]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_H, 0), "MAb");
+		panel.getActionMap().put("MAb", Variables.notes[20]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_N, 0), "MA");
+		panel.getActionMap().put("MA", Variables.notes[21]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_J, 0), "MBb");
+		panel.getActionMap().put("MBb", Variables.notes[22]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_M, 0), "MB");
+		panel.getActionMap().put("MB", Variables.notes[23]);
+		
+		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_COMMA, 0), "HC");
+		panel.getActionMap().put("HC", Variables.notes[24]);
+		
+		
 		
 	}
 

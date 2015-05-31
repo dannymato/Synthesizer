@@ -3,6 +3,8 @@ package src;
 import java.util.HashMap;
 import java.util.Map;
 
+import notes.Note;
+
 import com.jsyn.unitgen.UnitOscillator;
 
 public class Variables {
@@ -39,15 +41,24 @@ public class Variables {
 	
 	public UnitOscillator osc;
 	
-	public Map<String, Double> notes = new HashMap<String,Double>();
+	public static Map<Note, Double> notesPits = new HashMap<Note,Double>();
+	
+	public static Map<Note, Boolean> isPressed = new HashMap<Note, Boolean>();
 	
 	public static int oscType = 0;
 	
 	public static double amplitude = 1.0;
 	
+	public static Note[] notes = new Note[25];
+	
 	public Variables(){
 		for(int i = 0; i < pitches.length; i++){
-			notes.put(noteNames[i], pitches[i]);
+			notesPits.put(notes[i], pitches[i]);
+		}
+		
+		for(int i = 0; i < notes.length; i++){
+			notes[i] = new Note();
+			isPressed.put(notes[i], false);
 		}
 	}
 }
