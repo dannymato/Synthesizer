@@ -10,24 +10,23 @@ public class RadioAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String name = ((JRadioButton) e.getSource()).getName();
+		String name = ((JRadioButton)(e).getSource()).getName();
 		
 		switch (name) {
-		case "sineRad":
-			
+		case "sine":
 			Variables.oscType = 0;
-			
 			break;
-		case "squareRad":
+		case "square":
 			Variables.oscType = 1;
 			break;
-		
-		case "sawRad":
+		case "saw":
 			Variables.oscType = 2;
 			break;
 		default:
 			break;
 		}
+		
+		System.out.println(name);
 		
 	}
 

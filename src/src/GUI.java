@@ -7,6 +7,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
@@ -28,6 +29,7 @@ public class GUI {
 	public REdgeKey ME;
 	public REdgeKey MB;
 	
+	public JLabel vol;
 	
 	public JButton[] bKeys = new JButton[10];
 	
@@ -65,6 +67,7 @@ public class GUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
+		frame.setResizable(false);
 		
 		panel = new JPanel();
 		panel.setSize(1000,500);
@@ -75,7 +78,6 @@ public class GUI {
 	}
 	
 	public void mkLEKeys(){
-	//	C c = new C();
 		C = new LEdgeKey("");
 		C.setSize(50, 200);
 		C.setLocation(50, 200);
@@ -83,7 +85,7 @@ public class GUI {
 		panel.add(C);
 		panel.setComponentZOrder(C, 10);
 		
-	//	F f = new F();
+
 		F = new LEdgeKey("");
 		F.setSize(50, 200);
 		F.setLocation(200, 200);
@@ -91,7 +93,6 @@ public class GUI {
 		panel.add(F);
 		panel.setComponentZOrder(F	, 10);
 		
-	//	MC mc = new MC();
 		MC = new LEdgeKey("");
 		MC.setSize(50, 200);
 		MC.setLocation(400, 200);
@@ -99,7 +100,6 @@ public class GUI {
 		panel.add(MC);
 		panel.setComponentZOrder(MC, 10);
 		
-	//	MF mf = new MF();
 		MF = new LEdgeKey("");
 		MF.setSize(50, 200);
 		MF.setLocation(550, 200);
@@ -107,7 +107,6 @@ public class GUI {
 		frame.add(MF);
 		panel.setComponentZOrder(MF, 10);
 		
-	//	HC hc = new HC();
 		HC = new LEdgeKey("");
 		HC.setSize(50, 200);
 		HC.setLocation(750, 200);
@@ -117,7 +116,6 @@ public class GUI {
 	}
 	
 	public void mkWKeys(){
-	//	D d = new D();
 		D = new JButton();
 		D.setSize(50,100);
 		D.setLocation(100, 300);
@@ -126,7 +124,6 @@ public class GUI {
 		frame.add(D);
 		panel.setComponentZOrder(D, 10);
 		
-	//	G g = new G();
 		G = new JButton();
 		G.setSize(50,100);
 		G.setLocation(250, 300);
@@ -135,7 +132,6 @@ public class GUI {
 		frame.add(G);
 		panel.setComponentZOrder(G, 10);
 		
-	//	A a = new A();
 		A = new JButton();
 		A.setSize(50,100);
 		A.setLocation(300, 300);
@@ -144,7 +140,6 @@ public class GUI {
 		panel.add(A);
 		panel.setComponentZOrder(A, 10);
 		
-	//	MD md = new MD();
 		MD = new JButton();
 		MD.setSize(50,100);
 		MD.setLocation(450, 300);
@@ -153,7 +148,6 @@ public class GUI {
 		panel.add(MD);
 		panel.setComponentZOrder(MD, 10);
 		
-	//	MG mg = new MG();
 		MG = new JButton();
 		MG.setSize(50,100);
 		MG.setLocation(600, 300);
@@ -162,7 +156,6 @@ public class GUI {
 		panel.add(MG);
 		panel.setComponentZOrder(MG, 10);
 		
-	//	MA ma = new MA();
 		MA = new JButton();
 		MA.setSize(50,100);
 		MA.setLocation(650, 300);
@@ -175,7 +168,6 @@ public class GUI {
 	}
 	
 	public void mkREKeys(){
-	//	E e = new E();
 		E = new REdgeKey("");
 		E.setSize(50, 200);
 		E.setLocation(150,200);
@@ -183,7 +175,6 @@ public class GUI {
 		panel.add(E);
 		panel.setComponentZOrder(E, 10);
 		
-	//	B b = new B();
 		B = new REdgeKey("");
 		B.setSize(50, 200);
 		B.setLocation(350,200);
@@ -191,7 +182,6 @@ public class GUI {
 		panel.add(B);
 		panel.setComponentZOrder(B, 10);
 		
-	//	ME me = new ME();
 		ME = new REdgeKey("");
 		ME.setSize(50, 200);
 		ME.setLocation(500,200);
@@ -199,7 +189,6 @@ public class GUI {
 		panel.add(ME);
 		panel.setComponentZOrder(ME, 10);
 		
-	//	MB mb = new MB();
 		MB = new REdgeKey("");
 		MB.setSize(50, 200);
 		MB.setLocation(700,200);
@@ -216,18 +205,7 @@ public class GUI {
 			bKeys[i].setSize(50, 100);
 			bKeys[i].setBackground(Color.BLACK);
 		}
-		
-	/*	Db db = new Db();
-		Eb eb = new Eb();
-		Gb gb = new Gb();
-		Ab ab = new Ab();
-		Bb bb = new Bb();
-		MDb mdb = new MDb();
-		MEb meb = new MEb();
-		MGb mgb = new MGb();
-		MAb mab = new MAb();
-		MBb mbb = new MBb();*/
-		
+				
 		bKeys[0].setLocation(75,200);
 		bKeys[1].setLocation(125,200);
 		bKeys[2].setLocation(225,200);
@@ -273,14 +251,17 @@ public class GUI {
 		sineRad.setIcon((new ImageIcon(this.getClass().getResource("unlit.png"))));
 		sineRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
 		sineRad.addActionListener(r);
+		sineRad.setName("sine");
 		panel.add(sineRad);
+		
 		
 		squareRad = new JRadioButton("Square Wave");
 		squareRad.setBounds(700, 75, 150, 20);
 		oscPicks.add(squareRad);
 		squareRad.setIcon((new ImageIcon(this.getClass().getResource("unlit.png"))));
 		squareRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
-		sineRad.addActionListener(r);
+		squareRad.addActionListener(r);
+		squareRad.setName("square");
 		panel.add(squareRad);
 		
 		sawRad = new JRadioButton("Sawtooth Wave");
@@ -289,6 +270,7 @@ public class GUI {
 		sawRad.setSelectedIcon((new ImageIcon(this.getClass().getResource("lit.png"))));
 		oscPicks.add(sawRad);
 		sawRad.addActionListener(r);
+		sawRad.setName("saw");
 		panel.add(sawRad);
 		
 	}
@@ -305,6 +287,11 @@ public class GUI {
 		slide.addChangeListener(s);
 			
 		panel.add(slide);
+		
+		vol = new JLabel("Volume");
+		vol.setBounds(60,25,100,25);
+		vol.setText("Volume");
+		panel.add(vol);
 		
 	}
 	
@@ -385,7 +372,10 @@ public class GUI {
 		panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_COMMA, 0), "HC");
 		panel.getActionMap().put("HC", Variables.notes[24]);
 		
-		
+		for(int i = 0; i < Variables.noteNames.length;i++){
+			panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("released " + Variables.keys[i]), Variables.noteNames[i] + " released");
+			panel.getActionMap().put(Variables.noteNames[i] + " released", Variables.notesoff[i]);
+		}
 		
 	}
 

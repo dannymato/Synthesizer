@@ -1,7 +1,6 @@
 package notes;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyChangeListener;
@@ -23,14 +22,7 @@ public class Note implements  MouseListener, Action{
 	private Synthesizer synth;
 	private LineOut lineOut;
 	private UnitOscillator osc;
-	public int key = 0;
-	
-	
-	
-	public void setKey(){
-		key = KeyEvent.VK_NUMPAD0;
-	}
-	
+
 	public void start(UnitOscillator g, double fre){
 		synth = JSyn.createSynthesizer();
 		synth.add(osc = g);
@@ -39,7 +31,8 @@ public class Note implements  MouseListener, Action{
 		osc.frequency.set(fre);
 		osc.amplitude.set(Variables.amplitude);
 		
-		osc.output.connect(lineOut.input);
+		osc.output.connect(0,lineOut.input,0);
+		osc.output.connect(0,lineOut.input,1);
 		
 		synth.start();
 		lineOut.start();
@@ -72,6 +65,8 @@ public class Note implements  MouseListener, Action{
 		default:
 			break;
 		}
+		
+		System.out.println(v.oscType);
 		
 		start(v.osc,Variables.notesPits.get(this));
 		
@@ -122,10 +117,7 @@ public class Note implements  MouseListener, Action{
 		doStuff();
 		Variables.isPressed.put(this, true);
 		}
-		else{
-			stop();
-			Variables.isPressed.put(this, false);
-		}
+	
 			
 	}
 

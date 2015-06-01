@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import notes.Note;
+import notes.NoteOff;
 
 import com.jsyn.unitgen.UnitOscillator;
 
@@ -45,11 +46,43 @@ public class Variables {
 	
 	public static Map<Note, Boolean> isPressed = new HashMap<Note, Boolean>();
 	
+	public static Map<NoteOff, Note> actionMap = new HashMap<NoteOff, Note>();
+	
 	public static int oscType = 0;
 	
 	public static double amplitude = 1.0;
 	
 	public static Note[] notes = new Note[25];
+	
+	public static final String[] keys = {
+		"Q",
+		"2",
+		"W",
+		"3",
+		"E",
+		"R",
+		"5",
+		"T",
+		"6",
+		"Y",
+		"7",
+		"U",
+		"Z",
+		"S",
+		"X",
+		"D",
+		"C",
+		"V",
+		"G",
+		"B",
+		"H",
+		"N",
+		"J",
+		"M",
+		"COMMA"		
+	};
+	
+	public static NoteOff[] notesoff = new NoteOff[25];
 	
 	public Variables(){
 		for(int i = 0; i < pitches.length; i++){
@@ -58,7 +91,9 @@ public class Variables {
 		
 		for(int i = 0; i < notes.length; i++){
 			notes[i] = new Note();
+			notesoff[i] = new NoteOff();
 			isPressed.put(notes[i], false);
+			actionMap.put(notesoff[i],notes[i]);
 		}
 	}
 }
